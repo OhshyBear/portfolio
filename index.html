@@ -1,0 +1,55 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+function App() {
+  return (
+    <Router>
+      <div className="min-h-screen bg-gray-100 text-gray-800">
+        <nav className="bg-white shadow p-4 flex justify-between">
+          <h1 className="text-xl font-bold">My Portfolio</h1>
+          <div className="space-x-4">
+            <Link to="/" className="hover:text-blue-500">Home</Link>
+            <Link to="/about" className="hover:text-blue-500">About</Link>
+            <Link to="/projects" className="hover:text-blue-500">Projects</Link>
+            <Link to="/contact" className="hover:text-blue-500">Contact</Link>
+          </div>
+        </nav>
+
+        <main className="p-6">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  );
+}
+
+function Home() {
+  return <div className="text-center text-2xl">Welcome to my portfolio!</div>;
+}
+
+function About() {
+  return <div>I’m a software development student passionate about building cool stuff.</div>;
+}
+
+function Projects() {
+  return (
+    <div>
+      <h2 className="text-xl font-semibold mb-4">Projects</h2>
+      <ul className="space-y-2">
+        <li className="bg-white p-4 rounded shadow">Project 1 – Coming Soon</li>
+        <li className="bg-white p-4 rounded shadow">Project 2 – Coming Soon</li>
+      </ul>
+    </div>
+  );
+}
+
+function Contact() {
+  return <div>Email me at yourname@example.com</div>;
+}
+
+export default App;
